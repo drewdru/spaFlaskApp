@@ -3,18 +3,22 @@ import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
-import {ExamsApiService} from './exams/exams-api.service';
+import {ExamsService} from './services/exams/exams.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
   ],
-  providers: [ExamsApiService],
-  bootstrap: [AppComponent]
+  providers: [
+    ExamsService,
+  ],
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule {
 }

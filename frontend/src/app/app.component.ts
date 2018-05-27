@@ -1,7 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {ExamsApiService} from './exams/exams-api.service';
-import {Exam} from './exams/exam.model';
+import {ExamsService} from './services/exams/exams.service';
+import {Exam} from './models/exam.model';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   examsListSubs: Subscription;
   examsList: Exam[];
 
-  constructor(private examsApi: ExamsApiService) {
+  constructor(private examsApi: ExamsService) {
   }
 
   ngOnInit() {

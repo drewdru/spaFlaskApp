@@ -1,7 +1,7 @@
 
 from flask import Blueprint, jsonify, request
 
-from ..models.exam import Exam, ExamSchema
+from src.entities.models.exam import Exam, ExamSchema
 
 exams_page = Blueprint('exams_page', __name__,
                         template_folder='templates')

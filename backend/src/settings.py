@@ -23,7 +23,7 @@ RECAPTCHA_OPTIONS = {'theme': 'white'}
 DATABASES = {
     'sqlalchemy': {
         'drivername': 'postgres',
-        'host': 'HOST',
+        'host': 'map_db',
         'port': 'PORT',
         'username': 'USERNAME',
         'password': 'PASSWORD',

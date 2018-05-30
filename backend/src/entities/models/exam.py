@@ -2,7 +2,7 @@
 from datetime import datetime
 from marshmallow import Schema, fields
 from sqlalchemy import Column, Integer, String, DateTime
-from . import modelsHelper
+from src.entities.models import modelsHelper
 
 class Exam(modelsHelper.Base):
     __tablename__ = 'exams'

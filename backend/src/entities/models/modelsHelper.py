@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import as_declarative
 
-from ... import settings
+from src import settings
 
 def db_connect():
     """ Performs database connection using database settings from settings.py.

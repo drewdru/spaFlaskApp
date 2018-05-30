@@ -1,0 +1,32 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8002:8002"
+    environment:
+      - NGINX_HOST=drewdru.com
+      - NGINX_PORT=8000
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/site.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx/error.log:/var/log/nginx/error.log
+      - ./nginx/uwsgi_params:/etc/nginx/conf.d/uwsgi_params
+      - ./nginx/errors:/usr/share/nginx/html
+      - ./frontend/dist/frontend:/var/www/html
+      - ./backend/src/static:/code/src/static/
+    restart: unless-stopped
+  web:
+    build: .
+    volumes:
+      - ./backend:/code
+      - ./uwsgi.ini:/code/uwsgi.ini
+      - ./uwsgi.log:/code/uwsgi.log
+    ports:
+      - "8001:8001"
+    depends_on:
+      - nginx
+    #command: bash -c "python manage.py migrate && uwsgi uwsgi.ini"
+    command: bash -c "uwsgi uwsgi.ini"
+    extra_hosts:
+       - "map_db:x.x.x.x" # database host

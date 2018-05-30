@@ -1,7 +1,8 @@
 .vscode/
 local_*
-
-
+docker-compose.override.yml
+frontend/src/app/env.ts
+nginx/site.conf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

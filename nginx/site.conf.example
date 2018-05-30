@@ -1,0 +1,23 @@
+upstream flask {
+    # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+    server 172.17.0.1:8001; # for a web port socket
+}
+server {
+    listen 8002;
+    server_name your_host x.x.x.x 192.168.0.1 127.0.0.1;
+    charset utf-8;
+    error_log  /var/log/nginx/error.log;
+
+    location /static/ {
+        alias /code/src/static/;
+        expires max;
+    }
+    location /api/ {
+        uwsgi_pass      flask;
+        include         /etc/nginx/conf.d/uwsgi_params;
+    }
+    location / {
+        root /var/www/html/;
+        index index.html;
+    }
+}

@@ -15,6 +15,14 @@ Create file ./frontend/src/app/env.ts with:
 
     export const API_URL = 'http://x.x.x.x/api'; #x.x.x.x is a host to api
 
+## Build frontend
+
+    cd ./frontend
+    npm install
+    ng build # must be run all time after update frontend files
+
+## Build backend
+
 If you want to build without docker you can now::
 
     cd ./backend

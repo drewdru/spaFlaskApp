@@ -1,8 +1,10 @@
-.vscode/
 local_*
 docker-compose.override.yml
 frontend/src/app/env.ts
 nginx/site.conf
+backend/src/alembic.ini
+
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
